@@ -87,7 +87,7 @@ function Header({ onMenuClick }) {
           {/* Deposit Button */}
           <button
             onClick={() => setIsDepositModalOpen(true)}
-            className="bg-primary hover:bg-primary-dark text-white font-semibold px-4 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-colors duration-200 focus-visible-ring"
+            className="bg-primary hover:bg-primary-dark text-white font-semibold px-3 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-colors duration-200 focus-visible-ring"
             aria-label="Deposit funds"
           >
             <svg
@@ -103,7 +103,7 @@ function Header({ onMenuClick }) {
                 d="M12 4v16m8-8H4"
               />
             </svg>
-            Deposit
+            <span className="hidden sm:inline">Deposit</span>
           </button>
 
           {/* Notification Dropdown */}

@@ -61,12 +61,12 @@ function DepositModal({ isOpen, onClose }) {
               className="w-full pl-10 pr-4 py-3 bg-[#0d0d0d] dark:bg-gray-50 border border-[#2a2a2a] dark:border-gray-300 rounded-xl text-white dark:text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-primary transition-all"
             />
           </div>
-          <div className="flex gap-2 mt-2">
+          <div className="grid grid-cols-4 gap-2 mt-2">
             {[50, 100, 500, 1000].map((preset) => (
               <button
                 key={preset}
                 onClick={() => setAmount(preset.toString())}
-                className="flex-1 px-3 py-2 bg-[#262626] dark:bg-gray-100 text-[#9ca3af] dark:text-gray-700 rounded-lg hover:bg-[#2a2a2a] dark:hover:bg-gray-200 transition-all text-sm"
+                className="px-2 sm:px-3 py-2 bg-[#262626] dark:bg-gray-100 text-[#9ca3af] dark:text-gray-700 rounded-lg hover:bg-[#2a2a2a] dark:hover:bg-gray-200 transition-all text-xs sm:text-sm"
               >
                 ${preset}
               </button>
@@ -97,15 +97,15 @@ function DepositModal({ isOpen, onClose }) {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             onClick={onClose}
-            className="flex-1 px-6 py-3 bg-[#262626] dark:bg-gray-200 text-white dark:text-gray-900 rounded-xl font-semibold hover:bg-[#2a2a2a] dark:hover:bg-gray-300 transition-all"
+            className="flex-1 px-6 py-3 bg-[#262626] dark:bg-gray-200 text-white dark:text-gray-900 rounded-xl font-semibold hover:bg-[#2a2a2a] dark:hover:bg-gray-300 transition-all order-2 sm:order-1"
           >
             Cancel
           </button>
           <button
-            className="flex-1 px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 px-6 py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed order-1 sm:order-2"
             disabled={!amount || parseFloat(amount) <= 0}
           >
             Continue

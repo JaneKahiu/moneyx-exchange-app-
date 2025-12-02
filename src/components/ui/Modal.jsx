@@ -23,16 +23,16 @@ function Modal({ isOpen, onClose, title, children }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="bg-[#1a1a1a] dark:bg-white rounded-2xl shadow-2xl w-full max-w-md border border-[#2a2a2a] dark:border-gray-200 animate-slideIn"
+        className="bg-[#1a1a1a] dark:bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto border border-[#2a2a2a] dark:border-gray-200 animate-slideIn"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-[#2a2a2a] dark:border-gray-200">
-          <h2 className="text-xl font-semibold text-white dark:text-gray-900">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-[#2a2a2a] dark:border-gray-200">
+          <h2 className="text-lg sm:text-xl font-semibold text-white dark:text-gray-900">
             {title}
           </h2>
           <button
@@ -47,7 +47,7 @@ function Modal({ isOpen, onClose, title, children }) {
         </div>
         
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {children}
         </div>
       </div>
