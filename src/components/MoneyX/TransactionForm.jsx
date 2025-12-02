@@ -122,8 +122,8 @@ function TransactionForm() {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-4xl mx-auto px-4 sm:px-0">
       {/* Transaction Info Card */}
-      <div className="bg-[#1A2332] rounded-2xl p-8 space-y-6">
-        <h2 className="text-xl font-semibold text-gray-400">Transaction Info</h2>
+      <div className="bg-[#1a1a1a] rounded-2xl p-8 space-y-6 border border-[#2a2a2a]">
+        <h2 className="text-xl font-semibold text-[#9ca3af]">Transaction Info</h2>
 
         {/* Success Message */}
         {submitSuccess && (

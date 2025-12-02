@@ -16,7 +16,7 @@ function Sidebar({ isOpen, onClose }) {
     <aside
       className={`
         fixed lg:static inset-y-0 left-0 z-50
-        w-64 bg-[#111827] border-r border-gray-800 flex flex-col
+        w-64 bg-[#141414] border-r border-[#2a2a2a] flex flex-col
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}
@@ -34,7 +34,7 @@ function Sidebar({ isOpen, onClose }) {
         </svg>
       </button>
       {/* Sidebar Content */}
-      <div className="flex-1 py-6">
+      <div className="flex-1 pt-8 pb-6">
         {/* Navigation Items */}
         <nav className="space-y-1 px-3">
           {navItems.map((item) => (
@@ -46,8 +46,8 @@ function Sidebar({ isOpen, onClose }) {
               }}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 focus-visible-ring ${
                 activeItem === item.id
-                  ? 'bg-[#374151] text-white border-l-4 border-primary'
-                  : 'text-gray-400 hover:bg-[#1F2937] hover:text-white'
+                  ? 'bg-[#262626] text-white'
+                  : 'text-[#9ca3af] hover:bg-[#1a1a1a] hover:text-white'
               }`}
               aria-current={activeItem === item.id ? 'page' : undefined}
               aria-label={`Navigate to ${item.label}`}
@@ -63,8 +63,8 @@ function Sidebar({ isOpen, onClose }) {
               onClick={() => setIsAccountOpen(!isAccountOpen)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 focus-visible-ring ${
                 isAccountOpen
-                  ? 'bg-[#1F2937] text-white'
-                  : 'text-gray-400 hover:bg-[#1F2937] hover:text-white'
+                  ? 'bg-[#1a1a1a] text-white'
+                  : 'text-[#9ca3af] hover:bg-[#1a1a1a] hover:text-white'
               }`}
               aria-expanded={isAccountOpen}
               aria-label="Account menu"
@@ -91,13 +91,13 @@ function Sidebar({ isOpen, onClose }) {
             {/* Dropdown Menu */}
             {isAccountOpen && (
               <div className="mt-1 ml-4 space-y-1">
-                <button className="w-full text-left px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-[#1F2937] rounded-lg">
+                <button className="w-full text-left px-4 py-2 text-sm text-[#9ca3af] hover:text-white hover:bg-[#1a1a1a] rounded-lg">
                   Profile
                 </button>
-                <button className="w-full text-left px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-[#1F2937] rounded-lg">
+                <button className="w-full text-left px-4 py-2 text-sm text-[#9ca3af] hover:text-white hover:bg-[#1a1a1a] rounded-lg">
                   Security
                 </button>
-                <button className="w-full text-left px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-[#1F2937] rounded-lg">
+                <button className="w-full text-left px-4 py-2 text-sm text-[#9ca3af] hover:text-white hover:bg-[#1a1a1a] rounded-lg">
                   Verification
                 </button>
               </div>
@@ -106,7 +106,7 @@ function Sidebar({ isOpen, onClose }) {
 
           {/* Settings */}
           <button
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left text-gray-400 hover:bg-[#1F2937] hover:text-white transition-all duration-200 focus-visible-ring"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left text-[#9ca3af] hover:bg-[#1a1a1a] hover:text-white transition-all duration-200 focus-visible-ring"
             aria-label="Settings"
           >
             <span className="text-xl" aria-hidden="true">⚙️</span>

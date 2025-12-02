@@ -1,6 +1,6 @@
 function Header({ onMenuClick }) {
   return (
-    <header className="bg-[#1E293B] border-b border-gray-800 px-4 sm:px-6 py-4" role="banner">
+    <header className="bg-[#141414] border-b border-[#2a2a2a] px-4 sm:px-6 py-4" role="banner">
       <div className="flex items-center justify-between">
         {/* Left Side - Logo */}
         <div className="flex items-center gap-4 sm:gap-8">

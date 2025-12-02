@@ -29,14 +29,14 @@ function BankSelector({
   return (
     <div className="space-y-3" ref={selectorRef}>
       {/* Label */}
-      <label className="block text-gray-500 text-sm">{label}</label>
+      <label className="block text-[#9ca3af] text-sm">{label}</label>
 
       {/* Selector Button */}
       <div className="relative">
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full bg-[#273142] rounded-lg px-4 py-4 flex items-center justify-between hover:bg-[#2D3748] focus:outline-none transition-all duration-200"
+          className="w-full bg-[#1c1c1c] rounded-lg px-4 py-4 flex items-center justify-between hover:bg-[#262626] focus:outline-none transition-all duration-200 border border-[#2a2a2a]"
         >
           {/* Selected Bank */}
           <div className="flex items-center gap-3">
@@ -45,7 +45,7 @@ function BankSelector({
                 <span className="text-lg">{selectedBank.icon}</span>
               </div>
             )}
-            <span className="text-white font-medium text-base">
+            <span className="text-[#ffffff] font-medium text-base">
               {selectedBank?.name || 'Select a bank'}
             </span>
           </div>
@@ -70,7 +70,7 @@ function BankSelector({
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute z-50 w-full mt-2 bg-[#273142] border border-gray-700 rounded-lg shadow-xl max-h-60 overflow-auto">
+          <div className="absolute z-50 w-full mt-2 bg-[#1c1c1c] border border-[#2a2a2a] rounded-lg shadow-xl max-h-60 overflow-auto">
             {banks.length === 0 ? (
               <div className="px-4 py-3 text-gray-500 text-sm">
                 No banks available
@@ -84,11 +84,11 @@ function BankSelector({
                   className={`
                     w-full px-4 py-3 text-left
                     flex items-center gap-3
-                    hover:bg-[#334155]
+                    hover:bg-[#262626]
                     transition-colors duration-150
                     ${
                       selectedBank?.id === bank.id
-                        ? 'bg-[#334155]'
+                        ? 'bg-[#262626]'
                         : ''
                     }
                   `}
@@ -99,7 +99,7 @@ function BankSelector({
                   </div>
 
                   {/* Bank Name */}
-                  <span className="flex-1 text-white font-medium">{bank.name}</span>
+                  <span className="flex-1 text-[#ffffff] font-medium">{bank.name}</span>
 
                   {/* Check Mark for Selected */}
                   {selectedBank?.id === bank.id && (
