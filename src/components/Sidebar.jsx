@@ -15,9 +15,10 @@ function Sidebar({ isOpen, onClose }) {
   return (
     <aside
       className={`
-        fixed lg:static inset-y-0 left-0 z-50
+        fixed lg:static top-auto left-0 bottom-0 z-50
         w-64 bg-[#141414] border-r border-[#2a2a2a] flex flex-col
         transform transition-transform duration-300 ease-in-out
+        lg:h-auto h-full
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}
       role="navigation"
@@ -34,7 +35,7 @@ function Sidebar({ isOpen, onClose }) {
         </svg>
       </button>
       {/* Sidebar Content */}
-      <div className="flex-1 pt-8 pb-6">
+      <div className="flex-1 pt-6 pb-6 overflow-y-auto">
         {/* Navigation Items */}
         <nav className="space-y-1 px-3">
           {navItems.map((item) => (

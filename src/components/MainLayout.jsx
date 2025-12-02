@@ -6,11 +6,14 @@ function MainLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-[#0a0a0a]">
+    <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
       {/* Skip to main content for accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
+
+      {/* Header - Full Width */}
+      <Header onMenuClick={() => setIsSidebarOpen(true)} />
 
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
@@ -21,13 +24,10 @@ function MainLayout({ children }) {
         />
       )}
 
-      {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
-        {/* Header */}
-        <Header onMenuClick={() => setIsSidebarOpen(true)} />
+      {/* Main Content Area with Sidebar */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Sidebar - Below Header */}
+        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
         {/* Page Content */}
         <main id="main-content" className="flex-1 overflow-auto" role="main">
