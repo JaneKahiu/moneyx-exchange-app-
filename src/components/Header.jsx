@@ -1,9 +1,19 @@
-function Header() {
+function Header({ onMenuClick }) {
   return (
-    <header className="bg-dark-darker border-b border-gray-800 px-6 py-4">
+    <header className="bg-[#1E293B] border-b border-gray-800 px-4 sm:px-6 py-4" role="banner">
       <div className="flex items-center justify-between">
         {/* Left Side - Logo */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 sm:gap-8">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={onMenuClick}
+            className="lg:hidden p-2 text-gray-400 hover:text-white hover:bg-dark-lighter rounded-lg transition-all focus-visible-ring"
+            aria-label="Open menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
           {/* Logo Placeholder */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
@@ -43,7 +53,10 @@ function Header() {
         {/* Right Side - Actions */}
         <div className="flex items-center gap-4">
           {/* Deposit Button */}
-          <button className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2 rounded-lg flex items-center gap-2 transition-colors duration-200">
+          <button
+            className="bg-primary hover:bg-primary-dark text-white font-semibold px-4 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-colors duration-200 focus-visible-ring"
+            aria-label="Deposit funds"
+          >
             <svg
               className="w-5 h-5"
               fill="none"
@@ -61,7 +74,10 @@ function Header() {
           </button>
 
           {/* Notification Icon with Badge */}
-          <button className="relative p-2 text-gray-400 hover:text-white hover:bg-dark-lighter rounded-lg transition-all">
+          <button
+            className="relative p-2 text-gray-400 hover:text-white hover:bg-dark-lighter rounded-lg transition-all focus-visible-ring"
+            aria-label="Notifications"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -79,12 +95,18 @@ function Header() {
           </button>
 
           {/* User Profile */}
-          <button className="flex items-center gap-2 p-2 hover:bg-dark-lighter rounded-lg transition-all">
+          <button
+            className="flex items-center gap-2 p-2 hover:bg-dark-lighter rounded-lg transition-all focus-visible-ring"
+            aria-label="User profile"
+          >
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full"></div>
           </button>
 
           {/* Language Selector */}
-          <button className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-white hover:bg-dark-lighter rounded-lg transition-all">
+          <button
+            className="hidden sm:flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-white hover:bg-dark-lighter rounded-lg transition-all focus-visible-ring"
+            aria-label="Change language"
+          >
             <span className="text-lg">🇬🇧</span>
             <svg
               className="w-4 h-4"

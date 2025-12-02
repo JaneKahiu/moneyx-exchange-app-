@@ -27,32 +27,32 @@ function BankSelector({
   };
 
   return (
-    <div className="space-y-2" ref={selectorRef}>
+    <div className="space-y-3" ref={selectorRef}>
       {/* Label */}
-      <label className="block text-gray-400 text-sm">{label}</label>
+      <label className="block text-gray-500 text-sm">{label}</label>
 
       {/* Selector Button */}
       <div className="relative">
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full bg-dark-lighter rounded-lg border border-gray-700 px-4 py-3 flex items-center justify-between hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+          className="w-full bg-[#273142] rounded-lg px-4 py-4 flex items-center justify-between hover:bg-[#2D3748] focus:outline-none transition-all duration-200"
         >
           {/* Selected Bank */}
           <div className="flex items-center gap-3">
             {selectedBank?.icon && (
-              <div className="flex items-center justify-center w-8 h-8 bg-dark-card rounded-full">
-                <span className="text-xl">{selectedBank.icon}</span>
+              <div className="flex items-center justify-center w-7 h-7 bg-white rounded-full">
+                <span className="text-lg">{selectedBank.icon}</span>
               </div>
             )}
-            <span className="text-white font-medium">
+            <span className="text-white font-medium text-base">
               {selectedBank?.name || 'Select a bank'}
             </span>
           </div>
 
           {/* Dropdown Arrow */}
           <svg
-            className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+            className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
               isOpen ? 'rotate-180' : ''
             }`}
             fill="none"
@@ -70,7 +70,7 @@ function BankSelector({
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute z-50 w-full mt-2 bg-dark-card border border-gray-700 rounded-lg shadow-xl max-h-60 overflow-auto animate-fadeIn">
+          <div className="absolute z-50 w-full mt-2 bg-[#273142] border border-gray-700 rounded-lg shadow-xl max-h-60 overflow-auto">
             {banks.length === 0 ? (
               <div className="px-4 py-3 text-gray-500 text-sm">
                 No banks available
@@ -84,22 +84,22 @@ function BankSelector({
                   className={`
                     w-full px-4 py-3 text-left
                     flex items-center gap-3
-                    hover:bg-dark-hover
+                    hover:bg-[#334155]
                     transition-colors duration-150
                     ${
                       selectedBank?.id === bank.id
-                        ? 'bg-dark-hover'
+                        ? 'bg-[#334155]'
                         : ''
                     }
                   `}
                 >
                   {/* Bank Icon */}
-                  <div className="flex items-center justify-center w-8 h-8 bg-dark-lighter rounded-full">
-                    <span className="text-xl">{bank.icon}</span>
+                  <div className="flex items-center justify-center w-7 h-7 bg-white rounded-full">
+                    <span className="text-lg">{bank.icon}</span>
                   </div>
 
                   {/* Bank Name */}
-                  <span className="flex-1 text-white">{bank.name}</span>
+                  <span className="flex-1 text-white font-medium">{bank.name}</span>
 
                   {/* Check Mark for Selected */}
                   {selectedBank?.id === bank.id && (

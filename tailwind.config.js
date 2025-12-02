@@ -17,6 +17,8 @@ export default {
           lighter: '#374151',
           darker: '#111827',
           card: '#2D3748',
+          bg: '#0F172A',
+          hover: '#334155',
         },
         accent: {
           green: '#10B981',
@@ -27,6 +29,9 @@ export default {
         'dark-bg': '#0F172A',
         'dark-card': '#1E293B',
         'dark-hover': '#334155',
+      },
+      ringOffsetColor: {
+        'dark-bg': '#0F172A',
       }
     },
   },

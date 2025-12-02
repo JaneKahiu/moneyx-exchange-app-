@@ -1,15 +1,20 @@
+import { ExchangeProvider } from './store/exchangeStore';
 import MainLayout from './components/MainLayout';
+import TransactionForm from './components/MoneyX/TransactionForm';
 
 function App() {
   return (
-    <MainLayout>
-      <div className="container mx-auto px-6 py-8">
-        <h1 className="text-4xl font-bold text-white mb-4">MoneyX</h1>
-        <p className="text-gray-400">
-          Welcome to your exchange dashboard
-        </p>
-      </div>
-    </MainLayout>
+    <ExchangeProvider>
+      <MainLayout>
+        <div className="px-8 py-8">
+          <div className="mb-8">
+            <h1 className="text-3xl font-semibold text-white mb-2">MoneyX</h1>
+          </div>
+          
+          <TransactionForm />
+        </div>
+      </MainLayout>
+    </ExchangeProvider>
   );
 }
 
