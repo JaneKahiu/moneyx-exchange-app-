@@ -120,10 +120,13 @@ function TransactionForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[900px] mx-auto px-4 sm:px-0">
+    <form onSubmit={handleSubmit} className="w-full">
+      {/* MoneyX Heading */}
+      <h1 className="text-2xl font-semibold text-white dark:text-gray-900 mb-6">MoneyX</h1>
+      
       {/* Transaction Info Card */}
-      <div className="bg-[#1a1a1a] dark:bg-white rounded-2xl p-8 space-y-6 border border-[#2a2a2a] dark:border-gray-200 shadow-xl dark:shadow-lg transition-all duration-200">
-        <h2 className="text-xl font-semibold text-white dark:text-gray-900">Transaction Info</h2>
+      <div className="bg-[#1a1a1a] dark:bg-white rounded-2xl p-6 space-y-6 border border-[#2a2a2a] dark:border-gray-200 shadow-xl dark:shadow-lg transition-all duration-200">
+        <h2 className="text-base font-normal text-gray-400 dark:text-gray-600">Transaction Info</h2>
 
         {/* Success Message */}
         {submitSuccess && (
@@ -145,95 +148,76 @@ function TransactionForm() {
           </div>
         )}
 
-        {/* Horizontal Send/Receive Layout */}
-        <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* You Send Section */}
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-white dark:text-gray-900 font-semibold text-base mb-1">You Send</h3>
-                <p className="text-gray-500 dark:text-gray-600 text-sm mb-3">I want to Recieve</p>
-                
-                <div className="relative bg-[#0d0d0d] dark:bg-gray-50 rounded-xl p-4 focus-within:ring-2 focus-within:ring-emerald-500 dark:focus-within:ring-emerald-400 transition-all duration-200 border border-[#2a2a2a] dark:border-gray-300">
-                  <div className="flex items-center justify-between gap-3">
-                    <input
-                      type="text"
-                      value={sendAmount}
-                      onChange={handleSendAmountChange}
-                      placeholder="0.00"
-                      className="flex-1 bg-transparent text-white dark:text-gray-900 text-2xl font-bold outline-none placeholder:text-gray-600 dark:placeholder:text-gray-400"
-                    />
-                    <div className="px-3 py-1 bg-[#262626] dark:bg-gray-200 rounded-md text-gray-400 dark:text-gray-700 text-sm font-medium">
-                      USD
-                    </div>
-                  </div>
-                </div>
-                {errors.sendAmount && (
-                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.sendAmount}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-gray-400 dark:text-gray-600 text-sm font-medium mb-2">Asset</label>
-                <BankSelector
-                  selectedBank={sendBank}
-                  banks={availableBanks}
-                  onSelect={updateSendBank}
-                />
-                {errors.sendBank && (
-                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.sendBank}</p>
-                )}
-              </div>
+        {/* Side-by-Side Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+          {/* You Send Section */}
+          <div className="space-y-3">
+            <div>
+              <h3 className="text-white dark:text-gray-900 font-medium text-base mb-1">You Send</h3>
+              <p className="text-gray-500 dark:text-gray-600 text-sm mb-3">I want to Recieve</p>
+              
+              <CurrencyInput
+                value={sendAmount}
+                onChange={handleSendAmountChange}
+                currency="USD"
+              />
+              {errors.sendAmount && (
+                <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.sendAmount}</p>
+              )}
             </div>
 
-            {/* You Receive Section */}
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-white dark:text-gray-900 font-semibold text-base mb-1">You Receive</h3>
-                <p className="text-gray-500 dark:text-gray-600 text-sm mb-3">I want to Recieve</p>
-                
-                <div className="relative bg-[#0d0d0d] dark:bg-gray-50 rounded-xl p-4 focus-within:ring-2 focus-within:ring-emerald-500 dark:focus-within:ring-emerald-400 transition-all duration-200 border border-[#2a2a2a] dark:border-gray-300">
-                  <div className="flex items-center justify-between gap-3">
-                    <input
-                      type="text"
-                      value={receiveAmount}
-                      onChange={handleReceiveAmountChange}
-                      placeholder="0.00"
-                      className="flex-1 bg-transparent text-white dark:text-gray-900 text-2xl font-bold outline-none placeholder:text-gray-600 dark:placeholder:text-gray-400"
-                    />
-                    <div className="px-3 py-1 bg-[#262626] dark:bg-gray-200 rounded-md text-gray-400 dark:text-gray-700 text-sm font-medium">
-                      USD
-                    </div>
-                  </div>
-                </div>
-                {errors.receiveAmount && (
-                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.receiveAmount}</p>
-                )}
-              </div>
-
-              <div>
-                <label className="block text-gray-400 dark:text-gray-600 text-sm font-medium mb-2">Asset</label>
-                <BankSelector
-                  selectedBank={receiveBank}
-                  banks={availableBanks}
-                  onSelect={updateReceiveBank}
-                />
-                {errors.receiveBank && (
-                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.receiveBank}</p>
-                )}
-              </div>
+            <div>
+              <label className="block text-gray-400 dark:text-gray-600 text-sm font-medium mb-2">Asset</label>
+              <BankSelector
+                selectedBank={sendBank}
+                banks={availableBanks}
+                onSelect={updateSendBank}
+              />
+              {errors.sendBank && (
+                <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.sendBank}</p>
+              )}
             </div>
           </div>
 
-          {/* Swap Button - Centered */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden lg:block">
-            <SwapButton onClick={handleSwap} />
+          {/* You Receive Section */}
+          <div className="space-y-3">
+            <div>
+              <h3 className="text-white dark:text-gray-900 font-medium text-base mb-1">You Receive</h3>
+              <p className="text-gray-500 dark:text-gray-600 text-sm mb-3">I want to Recieve</p>
+              
+              <CurrencyInput
+                value={receiveAmount}
+                onChange={handleReceiveAmountChange}
+                currency="USD"
+                hideLabel={true}
+              />
+              {errors.receiveAmount && (
+                <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.receiveAmount}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-gray-400 dark:text-gray-600 text-sm font-medium mb-2">Asset</label>
+              <BankSelector
+                selectedBank={receiveBank}
+                banks={availableBanks}
+                onSelect={updateReceiveBank}
+              />
+              {errors.receiveBank && (
+                <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.receiveBank}</p>
+              )}
+            </div>
           </div>
 
-          {/* Mobile Swap Button */}
-          <div className="lg:hidden flex justify-center -my-3">
+          {/* Swap Button - Centered between columns */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
             <SwapButton onClick={handleSwap} />
           </div>
+        </div>
+
+        {/* Mobile Swap Button */}
+        <div className="md:hidden flex justify-center -my-2">
+          <SwapButton onClick={handleSwap} />
         </div>
 
         {/* Warning Message */}
