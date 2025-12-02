@@ -7,19 +7,19 @@ function CurrencyInput({
   readOnly = false,
 }) {
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {/* Label */}
       <div className="flex items-center justify-between">
-        <h3 className="text-[#f9fafb] font-medium text-base">{label}</h3>
+        <h3 className="text-white light:text-gray-900 font-semibold text-lg">{label}</h3>
       </div>
 
       {/* Subtitle */}
       {subtitle && (
-        <p className="text-[#6b7280] text-sm">{subtitle}</p>
+        <p className="text-gray-500 light:text-gray-600 text-sm">{subtitle}</p>
       )}
 
       {/* Input Container */}
-      <div className="relative bg-[#1c1c1c] rounded-lg p-4 focus-within:ring-1 focus-within:ring-[#2a2a2a] transition-all duration-200 border border-[#2a2a2a]">
+      <div className="relative bg-[#0d0d0d] light:bg-gray-50 rounded-xl p-6 focus-within:ring-2 focus-within:ring-emerald-500 light:focus-within:ring-emerald-400 transition-all duration-200 border border-[#2a2a2a] light:border-gray-300">
         <div className="flex items-center justify-between gap-4">
           {/* Amount Input */}
           <input
@@ -28,11 +28,11 @@ function CurrencyInput({
             onChange={onChange}
             placeholder="0.00"
             readOnly={readOnly}
-            className="flex-1 bg-transparent text-[#ffffff] text-3xl font-semibold outline-none placeholder:text-[#6b7280]"
+            className="flex-1 bg-transparent text-white light:text-gray-900 text-4xl font-bold outline-none placeholder:text-gray-600 light:placeholder:text-gray-400"
           />
 
           {/* Currency Badge */}
-          <div className="px-4 py-2 bg-[#2a2a2a] rounded text-[#9ca3af] text-sm font-medium">
+          <div className="px-3 py-1 bg-[#262626] light:bg-gray-200 rounded-md text-gray-400 light:text-gray-700 text-sm font-medium">
             {currency}
           </div>
         </div>

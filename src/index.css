@@ -4,7 +4,11 @@
 
 @layer base {
   body {
-    @apply bg-[#0a0a0a] text-gray-100;
+    @apply bg-[#0a0a0a] text-gray-100 transition-colors duration-200;
+  }
+  
+  .light body {
+    @apply bg-white text-gray-900;
   }
 }
 

@@ -27,32 +27,32 @@ function BankSelector({
   };
 
   return (
-    <div className="space-y-3" ref={selectorRef}>
+    <div className="space-y-2" ref={selectorRef}>
       {/* Label */}
-      <label className="block text-[#9ca3af] text-sm">{label}</label>
+      <label className="block text-gray-400 light:text-gray-600 text-sm font-medium">{label}</label>
 
       {/* Selector Button */}
       <div className="relative">
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full bg-[#1c1c1c] rounded-lg px-4 py-4 flex items-center justify-between hover:bg-[#262626] focus:outline-none transition-all duration-200 border border-[#2a2a2a]"
+          className="w-full bg-[#0d0d0d] light:bg-gray-50 rounded-xl px-4 py-3 flex items-center justify-between hover:bg-[#1a1a1a] light:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 light:focus:ring-emerald-400 transition-all duration-200 border border-[#2a2a2a] light:border-gray-300"
         >
           {/* Selected Bank */}
           <div className="flex items-center gap-3">
             {selectedBank?.icon && (
-              <div className="flex items-center justify-center w-7 h-7 bg-white rounded-full">
+              <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full">
                 <span className="text-lg">{selectedBank.icon}</span>
               </div>
             )}
-            <span className="text-[#ffffff] font-medium text-base">
+            <span className="text-white light:text-gray-900 font-medium text-base">
               {selectedBank?.name || 'Select a bank'}
             </span>
           </div>
 
           {/* Dropdown Arrow */}
           <svg
-            className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
+            className={`w-5 h-5 text-gray-400 light:text-gray-600 transition-transform duration-200 ${
               isOpen ? 'rotate-180' : ''
             }`}
             fill="none"
@@ -70,9 +70,9 @@ function BankSelector({
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute z-50 w-full mt-2 bg-[#1c1c1c] border border-[#2a2a2a] rounded-lg shadow-xl max-h-60 overflow-auto">
+          <div className="absolute z-50 w-full mt-2 bg-[#0d0d0d] light:bg-white border border-[#2a2a2a] light:border-gray-300 rounded-xl shadow-xl light:shadow-2xl max-h-60 overflow-auto">
             {banks.length === 0 ? (
-              <div className="px-4 py-3 text-gray-500 text-sm">
+              <div className="px-4 py-3 text-gray-500 light:text-gray-600 text-sm">
                 No banks available
               </div>
             ) : (
@@ -84,27 +84,27 @@ function BankSelector({
                   className={`
                     w-full px-4 py-3 text-left
                     flex items-center gap-3
-                    hover:bg-[#262626]
+                    hover:bg-[#1a1a1a] light:hover:bg-gray-100
                     transition-colors duration-150
                     ${
                       selectedBank?.id === bank.id
-                        ? 'bg-[#262626]'
+                        ? 'bg-[#1a1a1a] light:bg-blue-50'
                         : ''
                     }
                   `}
                 >
                   {/* Bank Icon */}
-                  <div className="flex items-center justify-center w-7 h-7 bg-white rounded-full">
+                  <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full">
                     <span className="text-lg">{bank.icon}</span>
                   </div>
 
                   {/* Bank Name */}
-                  <span className="flex-1 text-[#ffffff] font-medium">{bank.name}</span>
+                  <span className="flex-1 text-white light:text-gray-900 font-medium">{bank.name}</span>
 
                   {/* Check Mark for Selected */}
                   {selectedBank?.id === bank.id && (
                     <svg
-                      className="w-5 h-5 text-primary"
+                      className="w-5 h-5 text-primary light:text-emerald-600"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >

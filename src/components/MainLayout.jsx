@@ -6,7 +6,7 @@ function MainLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0a0a0a]">
+    <div className="flex flex-col min-h-screen bg-[#0a0a0a] dark:bg-[#0a0a0a] light:bg-gray-50 transition-colors duration-200">
       {/* Skip to main content for accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content

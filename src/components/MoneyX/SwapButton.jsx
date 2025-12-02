@@ -1,15 +1,15 @@
 function SwapButton({ onClick }) {
   return (
-    <div className="flex justify-center -my-4">
+    <div className="flex justify-center -my-6">
       <button
         type="button"
         onClick={onClick}
-        className="relative z-10 w-12 h-12 bg-primary hover:bg-primary-dark rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 hover:rotate-180 focus:outline-none group"
+        className="relative z-10 w-14 h-14 bg-primary hover:bg-primary-dark rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-180 focus:outline-none focus:ring-4 focus:ring-emerald-500/50 group"
         aria-label="Swap currencies"
       >
         {/* Up/Down Arrows Icon */}
         <svg
-          className="w-5 h-5 text-white transition-transform duration-300"
+          className="w-6 h-6 text-white transition-transform duration-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
