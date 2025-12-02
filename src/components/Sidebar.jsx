@@ -16,7 +16,7 @@ function Sidebar({ isOpen, onClose }) {
     <aside
       className={`
         fixed lg:static top-auto left-0 bottom-0 z-50
-        w-64 bg-[#141414] light:bg-white border-r border-[#2a2a2a] light:border-gray-200 flex flex-col
+        w-64 bg-[#141414] dark:bg-white border-r border-[#2a2a2a] dark:border-gray-200 flex flex-col
         transform transition-all duration-300 ease-in-out
         lg:h-auto h-full
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
@@ -47,8 +47,8 @@ function Sidebar({ isOpen, onClose }) {
               }}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 focus-visible-ring ${
                 activeItem === item.id
-                  ? 'bg-[#262626] light:bg-blue-50 text-white light:text-blue-600'
-                  : 'text-[#9ca3af] light:text-gray-600 hover:bg-[#1a1a1a] light:hover:bg-gray-100 hover:text-white light:hover:text-gray-900'
+                  ? 'bg-[#262626] dark:bg-blue-50 text-white dark:text-blue-600'
+                  : 'text-[#9ca3af] dark:text-gray-600 hover:bg-[#1a1a1a] dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900'
               }`}
               aria-current={activeItem === item.id ? 'page' : undefined}
               aria-label={`Navigate to ${item.label}`}

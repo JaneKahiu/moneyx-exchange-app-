@@ -122,95 +122,125 @@ function TransactionForm() {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-[900px] mx-auto px-4 sm:px-0">
       {/* Transaction Info Card */}
-      <div className="bg-[#1a1a1a] light:bg-white rounded-2xl p-8 space-y-8 border border-[#2a2a2a] light:border-gray-200 shadow-xl light:shadow-lg transition-all duration-200">
-        <h2 className="text-xl font-semibold text-white light:text-gray-900">Transaction Info</h2>
+      <div className="bg-[#1a1a1a] dark:bg-white rounded-2xl p-8 space-y-6 border border-[#2a2a2a] dark:border-gray-200 shadow-xl dark:shadow-lg transition-all duration-200">
+        <h2 className="text-xl font-semibold text-white dark:text-gray-900">Transaction Info</h2>
 
         {/* Success Message */}
         {submitSuccess && (
-          <div className="flex items-center gap-3 p-4 bg-emerald-500/10 light:bg-emerald-50 border border-emerald-500/30 light:border-emerald-200 rounded-xl animate-fadeIn" role="alert">
-            <svg className="w-5 h-5 text-emerald-500 light:text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <div className="flex items-center gap-3 p-4 bg-emerald-500/10 dark:bg-emerald-50 border border-emerald-500/30 dark:border-emerald-200 rounded-xl animate-fadeIn" role="alert">
+            <svg className="w-5 h-5 text-emerald-500 dark:text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <p className="text-sm text-emerald-400 light:text-emerald-700 font-medium">Transaction submitted successfully!</p>
+            <p className="text-sm text-emerald-400 dark:text-emerald-700 font-medium">Transaction submitted successfully!</p>
           </div>
         )}
 
         {/* Error Message */}
         {submitError && (
-          <div className="flex items-center gap-3 p-4 bg-red-500/10 light:bg-red-50 border border-red-500/30 light:border-red-200 rounded-xl animate-fadeIn" role="alert">
-            <svg className="w-5 h-5 text-red-500 light:text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <div className="flex items-center gap-3 p-4 bg-red-500/10 dark:bg-red-50 border border-red-500/30 dark:border-red-200 rounded-xl animate-fadeIn" role="alert">
+            <svg className="w-5 h-5 text-red-500 dark:text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
             </svg>
-            <p className="text-sm text-red-400 light:text-red-700 font-medium">{submitError}</p>
+            <p className="text-sm text-red-400 dark:text-red-700 font-medium">{submitError}</p>
           </div>
         )}
 
-        {/* You Send Section */}
-        <div className="space-y-6">
-          <div>
-            <CurrencyInput
-              label="You Send"
-              subtitle="I want to Recieve"
-              value={sendAmount}
-              onChange={handleSendAmountChange}
-              currency="USD"
-            />
-            {errors.sendAmount && (
-              <p className="mt-2 text-sm text-red-400 light:text-red-600 animate-fadeIn" role="alert">{errors.sendAmount}</p>
-            )}
-          </div>
-
-          <div>
-            <BankSelector
-              label="Asset"
-              selectedBank={sendBank}
-              banks={availableBanks}
-              onSelect={updateSendBank}
-            />
-            {errors.sendBank && (
-              <p className="mt-2 text-sm text-red-400 light:text-red-600 animate-fadeIn" role="alert">{errors.sendBank}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Swap Button */}
+        {/* Horizontal Send/Receive Layout */}
         <div className="relative">
-          <SwapButton onClick={handleSwap} />
-        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* You Send Section */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-white dark:text-gray-900 font-semibold text-base mb-1">You Send</h3>
+                <p className="text-gray-500 dark:text-gray-600 text-sm mb-3">I want to Recieve</p>
+                
+                <div className="relative bg-[#0d0d0d] dark:bg-gray-50 rounded-xl p-4 focus-within:ring-2 focus-within:ring-emerald-500 dark:focus-within:ring-emerald-400 transition-all duration-200 border border-[#2a2a2a] dark:border-gray-300">
+                  <div className="flex items-center justify-between gap-3">
+                    <input
+                      type="text"
+                      value={sendAmount}
+                      onChange={handleSendAmountChange}
+                      placeholder="0.00"
+                      className="flex-1 bg-transparent text-white dark:text-gray-900 text-2xl font-bold outline-none placeholder:text-gray-600 dark:placeholder:text-gray-400"
+                    />
+                    <div className="px-3 py-1 bg-[#262626] dark:bg-gray-200 rounded-md text-gray-400 dark:text-gray-700 text-sm font-medium">
+                      USD
+                    </div>
+                  </div>
+                </div>
+                {errors.sendAmount && (
+                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.sendAmount}</p>
+                )}
+              </div>
 
-        {/* You Receive Section */}
-        <div className="space-y-6">
-          <div>
-            <CurrencyInput
-              label="You Receive"
-              subtitle="I want to Recieve"
-              value={receiveAmount}
-              onChange={handleReceiveAmountChange}
-              currency="USD"
-            />
-            {errors.receiveAmount && (
-              <p className="mt-2 text-sm text-red-400 light:text-red-600 animate-fadeIn" role="alert">{errors.receiveAmount}</p>
-            )}
+              <div>
+                <label className="block text-gray-400 dark:text-gray-600 text-sm font-medium mb-2">Asset</label>
+                <BankSelector
+                  selectedBank={sendBank}
+                  banks={availableBanks}
+                  onSelect={updateSendBank}
+                />
+                {errors.sendBank && (
+                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.sendBank}</p>
+                )}
+              </div>
+            </div>
+
+            {/* You Receive Section */}
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-white dark:text-gray-900 font-semibold text-base mb-1">You Receive</h3>
+                <p className="text-gray-500 dark:text-gray-600 text-sm mb-3">I want to Recieve</p>
+                
+                <div className="relative bg-[#0d0d0d] dark:bg-gray-50 rounded-xl p-4 focus-within:ring-2 focus-within:ring-emerald-500 dark:focus-within:ring-emerald-400 transition-all duration-200 border border-[#2a2a2a] dark:border-gray-300">
+                  <div className="flex items-center justify-between gap-3">
+                    <input
+                      type="text"
+                      value={receiveAmount}
+                      onChange={handleReceiveAmountChange}
+                      placeholder="0.00"
+                      className="flex-1 bg-transparent text-white dark:text-gray-900 text-2xl font-bold outline-none placeholder:text-gray-600 dark:placeholder:text-gray-400"
+                    />
+                    <div className="px-3 py-1 bg-[#262626] dark:bg-gray-200 rounded-md text-gray-400 dark:text-gray-700 text-sm font-medium">
+                      USD
+                    </div>
+                  </div>
+                </div>
+                {errors.receiveAmount && (
+                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.receiveAmount}</p>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-gray-400 dark:text-gray-600 text-sm font-medium mb-2">Asset</label>
+                <BankSelector
+                  selectedBank={receiveBank}
+                  banks={availableBanks}
+                  onSelect={updateReceiveBank}
+                />
+                {errors.receiveBank && (
+                  <p className="mt-2 text-sm text-red-400 dark:text-red-600 animate-fadeIn" role="alert">{errors.receiveBank}</p>
+                )}
+              </div>
+            </div>
           </div>
 
-          <div>
-            <BankSelector
-              label="Asset"
-              selectedBank={receiveBank}
-              banks={availableBanks}
-              onSelect={updateReceiveBank}
-            />
-            {errors.receiveBank && (
-              <p className="mt-2 text-sm text-red-400 animate-fadeIn" role="alert">{errors.receiveBank}</p>
-            )}
+          {/* Swap Button - Centered */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden lg:block">
+            <SwapButton onClick={handleSwap} />
+          </div>
+
+          {/* Mobile Swap Button */}
+          <div className="lg:hidden flex justify-center -my-3">
+            <SwapButton onClick={handleSwap} />
           </div>
         </div>
 
         {/* Warning Message */}
-        <div className="flex items-start gap-3 p-4 bg-red-500/10 light:bg-red-50 border-l-4 border-red-500 rounded-lg">
+        <div className="flex items-start gap-3 p-4 bg-red-500/10 dark:bg-red-50 border-l-4 border-red-500 rounded-lg">
           <div className="flex-shrink-0 mt-0.5">
             <svg
-              className="w-5 h-5 text-red-500 light:text-red-600"
+              className="w-5 h-5 text-red-500 dark:text-red-600"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -221,7 +251,7 @@ function TransactionForm() {
               />
             </svg>
           </div>
-          <p className="text-sm text-gray-300 light:text-gray-700">
+          <p className="text-sm text-gray-300 dark:text-gray-700">
             This is only an estimated price based on current market rates. The
             final price will be confirmed when we receive the funds.
           </p>

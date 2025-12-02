@@ -4,7 +4,7 @@ function Header({ onMenuClick }) {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="bg-[#141414] light:bg-white border-b border-[#2a2a2a] light:border-gray-200 px-4 sm:px-6 py-4 transition-colors duration-200" role="banner">
+    <header className="bg-[#141414] dark:bg-white border-b border-[#2a2a2a] dark:border-gray-200 px-4 sm:px-6 py-4 transition-colors duration-200" role="banner">
       <div className="flex items-center justify-between max-w-[1600px] mx-auto">
         {/* Left Side - Logo */}
         <div className="flex items-center gap-2">
@@ -30,25 +30,25 @@ function Header({ onMenuClick }) {
         <nav className="hidden md:flex items-center gap-8">
           <a
             href="#"
-            className="text-white light:text-gray-900 font-medium hover:text-primary transition-colors"
+            className="text-white dark:text-gray-900 font-medium hover:text-primary transition-colors"
           >
             Dashboard
           </a>
           <a
             href="#"
-            className="text-[#9ca3af] light:text-gray-600 font-medium hover:text-white light:hover:text-gray-900 transition-colors"
+            className="text-[#9ca3af] dark:text-gray-600 font-medium hover:text-white dark:hover:text-gray-900 transition-colors"
           >
             Market
           </a>
           <a
-            href="#"
-            className="text-[#9ca3af] light:text-gray-600 font-medium hover:text-white light:hover:text-gray-900 transition-colors"
+            href="#rates"
+            className="text-[#9ca3af] dark:text-gray-600 font-medium hover:text-white dark:hover:text-gray-900 transition-colors"
           >
             Rates
           </a>
           <a
-            href="#"
-            className="text-[#9ca3af] light:text-gray-600 font-medium hover:text-white light:hover:text-gray-900 transition-colors"
+            href="#blog"
+            className="text-[#9ca3af] dark:text-gray-600 font-medium hover:text-white dark:hover:text-gray-900 transition-colors"
           >
             Blog
           </a>
@@ -79,7 +79,7 @@ function Header({ onMenuClick }) {
 
           {/* Notification Icon with Badge */}
           <button
-            className="relative p-2 text-gray-400 light:text-gray-600 hover:text-white light:hover:text-gray-900 hover:bg-[#1a1a1a] light:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
+            className="relative p-2 text-gray-400 dark:text-gray-600 hover:text-white dark:hover:text-gray-900 hover:bg-[#1a1a1a] dark:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
             aria-label="Notifications"
           >
             <svg
@@ -100,7 +100,7 @@ function Header({ onMenuClick }) {
 
           {/* User Profile */}
           <button
-            className="flex items-center gap-2 p-2 hover:bg-[#1a1a1a] light:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
+            className="flex items-center gap-2 p-2 hover:bg-[#1a1a1a] dark:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
             aria-label="User profile"
           >
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full"></div>
@@ -108,7 +108,7 @@ function Header({ onMenuClick }) {
 
           {/* Theme Toggle */}
           <button
-            className="p-2 text-[#9ca3af] light:text-gray-600 hover:text-white light:hover:text-gray-900 hover:bg-[#1a1a1a] light:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
+            className="p-2 text-[#9ca3af] dark:text-gray-600 hover:text-white dark:hover:text-gray-900 hover:bg-[#1a1a1a] dark:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >
@@ -127,7 +127,7 @@ function Header({ onMenuClick }) {
 
           {/* Language Selector */}
           <button
-            className="hidden sm:flex items-center gap-2 px-3 py-2 text-[#9ca3af] light:text-gray-600 hover:text-white light:hover:text-gray-900 hover:bg-[#1a1a1a] light:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
+            className="hidden sm:flex items-center gap-2 px-3 py-2 text-[#9ca3af] dark:text-gray-600 hover:text-white dark:hover:text-gray-900 hover:bg-[#1a1a1a] dark:hover:bg-gray-100 rounded-lg transition-all focus-visible-ring"
             aria-label="Change language"
           >
             <span className="text-lg">🇬🇧</span>
