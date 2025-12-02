@@ -215,18 +215,6 @@ import { Select } from './components/ui';
 - [ ] Internationalization (i18n)
 - [ ] Unit and integration tests
 
-## 📄 License
 
-This project is licensed under the MIT License.
 
-## 👥 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📞 Support
-
-For questions or support, please open an issue in the GitHub repository.
-
----
-
-Built with ❤️ using React + Vite + Tailwind CSS
+Built with  using React + Vite + Tailwind CSS
